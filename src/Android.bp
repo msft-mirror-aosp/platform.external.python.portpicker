@@ -15,14 +15,21 @@ package {
     default_applicable_licenses: ["external_python_portpicker_license"],
 }
 
-license {
-    name: "external_python_portpicker_license",
-    visibility: [":__subpackages__"],
-    license_kinds: [
-        "SPDX-license-identifier-Apache-2.0",
+python_library {
+    name: "py-portpicker",
+    host_supported: true,
+    srcs: [
+        "__init__.py",
+        "portpicker.py",
+        "portserver.py",
     ],
-    license_text: [
-        "LICENSE",
-    ],
+    version: {
+        py2: {
+            enabled: false,
+        },
+        py3: {
+            enabled: true,
+        },
+    },
+    pkg_path: "portpicker",
 }
-
