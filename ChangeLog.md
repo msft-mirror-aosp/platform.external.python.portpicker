@@ -1,3 +1,31 @@
+## 1.6.0
+
+*   Resolve an internal source of potential flakiness on the bind/close port
+    checks when used in active environments by calling `.shutdown()` before
+    `.close()`.
+
+## 1.6.0b1
+
+*   Add `-h` and `--help` text to the command line tool.
+*   The command line interface now defaults to associating the returned port
+    with its parent process PID (usually the calling script) when no argument
+    was given as that makes more sense.
+*   When portpicker is used as a command line tool from a script, if a port is
+    chosen without a portserver it can now be kept bound to a socket by a
+    child process for a user specified timeout. When successful, this helps
+    minimize race conditions as subsequent portpicker CLI invocations within
+    the timeout window cannot choose the same port.
+*   Some pylint based refactorings to portpicker and portpicker\_test.
+*   Drop 3.6 from our CI test matrix and metadata. It probably still works
+    there, but expect our unittests to include 3.7-ism's in the future. We'll
+    *attempt* to avoid modern constructs in portpicker.py itself but zero
+    guarantees. Using an old Python? Use an old portpicker.
+
+## 1.5.2
+
+*   Do not re-pick a known used (not-yet-returned) port when running stand alone
+    without a portserver.
+
 ## 1.5.1
 
 *   When not using a portserver *(you really should)*, try the `bind(0)`
