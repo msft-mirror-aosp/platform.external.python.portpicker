@@ -15,6 +15,7 @@ third_party {
   identifier {
     type: "Git"
     value: "https://github.com/google/python_portpicker"
-    version: "v1.6.0"
+    version: "0b1a8ec5494281a809d294ef99179f26fa56be7f"
+    closest_version: "v1.6.0"
   }
 }
